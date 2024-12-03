@@ -1,0 +1,14 @@
+.avatarContainer {
+  cursor: pointer;
+  width: 100%;
+}
+
+.icon:hover {
+  width: 100%;
+}
+
+.icon {
+  width: 50%;
+  border-radius: 50%;
+  transition: all 0.3s;
+}

@@ -20,3 +20,4 @@ export function NavLinks() {
     </nav>
   );
 }
+
