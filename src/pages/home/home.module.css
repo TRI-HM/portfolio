@@ -1,12 +1,9 @@
 .page {
-  background-color: gray;
   justify-items: center;
-  
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background-color: wheat;
   width: 80%;
 }

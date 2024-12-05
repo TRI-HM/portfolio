@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./home.module.css";
-import KeyVisual from "./components/KeyVisual";
+import KeyVisual from "./components/keyVisual/KeyVisual";
 
 const HomeMain = () => {
   return (
