@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import styles from "./generateQrCode.module.css";
+import ExcelReader from "./components/readExcel";
 
 const GenerateQrCodeMain = () => {
   const [id, setId] = useState<string>("");
@@ -26,6 +27,9 @@ const GenerateQrCodeMain = () => {
         />
         <div>{<QRCodeSVG value={qrValue} />}</div>
       </div>
+
+      {/* read file  */}
+      <ExcelReader />
     </div>
   );
 };
