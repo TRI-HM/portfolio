@@ -1,13 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import styles from "./generateQrCode.module.css";
-import ExcelReader from "./components/readExcel";
+import ExcelReader, { IExcelRow } from "./components/readExcel";
 
 const GenerateQrCodeMain = () => {
-  const [id, setId] = useState<string>("");
+  const [data, setData] = useState<IExcelRow[]>([]);
+  // const [id, setId] = useState<string>("");
 
-  const qrValue = `${window.location.origin}/${id}`;
+  // const qrValue = `${window.location.origin}/${id}`;
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
 
   return (
     <div className={styles.page}>
@@ -18,7 +23,7 @@ const GenerateQrCodeMain = () => {
       {/* Input excel file */}
 
       {/* Generate QR */}
-      <div>
+      {/* <div>
         <input
           type="text"
           placeholder="Nhập ID ảnh"
@@ -26,10 +31,22 @@ const GenerateQrCodeMain = () => {
           onChange={(e) => setId(e.target.value)}
         />
         <div>{<QRCodeSVG value={qrValue} />}</div>
-      </div>
+      </div> */}
 
       {/* read file  */}
-      <ExcelReader />
+      <ExcelReader setData={setData} />
+
+      <div>
+        <h1>QR Code List</h1>
+        <div className={styles.qrList}>
+          {data.map((item, index) => (
+            <div key={index} className={styles.qrItem}>
+              <QRCodeSVG value={item.id.toString()} />
+              <p>{item.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
